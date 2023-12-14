@@ -54,16 +54,21 @@ and open the template in the editor.
 
                     <li>
                         <select class= "input">
-                            <?php
-                            $query = $conn->query("SELECT idServico,nome FROM servico ORDER BY nome ASC");
-                            $SERVICOS = query->fetchALL(PDO::FETCH_ASSOC);
+                            
+                        <?php 
+                         $sql = "SELECT idServiço,descricao FROM servico ORDER BY descricao ASC";
+                         $SERVICOS = mysqli_query($conn,$sql);
 
-                            foreach(servicos as $option) {
-                                ?>
-                                <option value="<?php echo $option['idServico']?>"><?php echo $option['descricao']?></option>
-                            <?php
+                         foreach($SERVICOS as $option) {
+                        ?>
+                        
+                           
+                           
+                                <option value="<?php echo $option["idServiço"] ?>"><?php echo $option["descricao"] ?></option>
+                           
+                        <?php   
                             }
-                            ?>
+                           ?>
 
                         </select>
                      
